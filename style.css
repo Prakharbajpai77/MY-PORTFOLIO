@@ -1,0 +1,438 @@
+/* --- Global Styles & Dark Theme (like the template) --- */
+:root {
+  --bg-color: #1e1e1e;
+  --sidebar-bg: #191919;
+  --card-bg: #282828;
+  --text-color: #e0e0e0;
+  --primary-color: #f0c400; /* Yellow from template button */
+  --text-muted: #888;
+}
+/* Add this after :root and before body */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/dark-desk-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.1; /* Adjust for desired darkness/visibility of background */
+    z-index: -1; /* Puts it behind everything else */
+    animation: liveBackground 40s ease-in-out infinite;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex; /* Use flexbox for layout */
+  
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-right: 1px solid var(--card-bg);
+  position: fixed; /* Makes the sidebar stay in place */
+  width: 280px;
+  height: 100vh;
+  box-sizing: border-box; /* Important for padding */
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.sidebar-header p {
+  color: var(--text-muted);
+  margin: 0.2rem 0 0 0;
+  font-size: 1rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.sidebar-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  color: var(--primary-color);
+}
+
+.sidebar-social {
+  margin-top: auto; /* Pushes social links to the bottom */
+}
+
+.sidebar-social p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.sidebar-social a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* --- Main Content --- */
+.main-content {
+  margin-left: 280px; /* Offset content by sidebar width */
+  padding: 2rem 4rem;
+  width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 90vh; /* Make it take up most of the screen */
+  padding-bottom: 2rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--card-bg);
+  padding: 0.75rem;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #111;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 3px solid var(--primary-color);
+}
+
+/* --- Other Content Sections --- */
+.content-section {
+  padding-top: 5rem;
+  min-height: 50vh;
+}
+
+.content-section h2 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.contact-link {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  padding-top: 4rem;
+  border-top: 1px solid var(--card-bg);
+  margin-top: 4rem;
+}
+
+/* --- Basic Responsive --- */
+@media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--card-bg);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 2rem;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+    padding-top: 3rem;
+  }
+}
+
+/* --- Skills Section Styles --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background-color: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--text-muted);
+    padding-bottom: 0.5rem;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* --- Timeline for Education & Certificates --- */
+.timeline {
+    margin-top: 2rem;
+    position: relative;
+    padding-left: 2rem; /* Space for the timeline vertical bar */
+}
+
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--primary-color);
+}
+
+.timeline-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* The dot on the timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem; /* Moves dot left to the vertical bar */
+    top: 1.5rem; /* Aligns dot with text */
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+}
+
+.timeline-item h4 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.timeline-item p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 100%;
+}
+/* --- Contact Form Styles --- */
+.contact-form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-muted);
+    border-radius: 5px;
+    box-sizing: border-box; /* Important for padding */
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.submit-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #111;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #fff;
+    color: #111;
+}
+
+.contact-fallback {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+/* ADD THIS AT THE VERY BOTTOM OF YOUR STYLE.CSS */
+@keyframes liveBackground {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.2) translate(-20px, 10px); /* Zooms in and pans slightly */
+  }
+  100% {
+    transform: scale(1.1) translate(0, 0); /* Returns to start for a smooth loop */
+  }
+}
+/* --- Sidebar Social Links --- */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Adds space between links */
+}
+
+/* This style below might already exist, but ensure it's there */
+.sidebar-social a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem; /* Makes links a bit bigger */
+}
+/* --- Hobbies Section Styles --- */
+.hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hobby-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.hobby-card h4 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.hobby-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 100%;
+    color: var(--text-muted);
+}
