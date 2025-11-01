@@ -182,13 +182,12 @@
     </div>
 </section>
 
-       
-        <section id="contact" class="content-section">
+ <section id="contact" class="content-section">
   <h2>Ask a Question</h2>
   <p>Have a question or want to work together? Send me a message!</p>
 
   <!-- ✅ Netlify form -->
-  <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+  <form name="contact" method="POST" data-netlify="true" id="contact-form">
 
     <!-- 👇 Required hidden field -->
     <input type="hidden" name="form-name" value="contact">
@@ -211,6 +210,12 @@
     <button type="submit" class="submit-button">Send Message</button>
   </form>
 
+  <!-- ✅ Hidden Thank You message -->
+  <div id="thank-you-message" style="display:none; text-align:center; margin-top:20px;">
+    <h3>✅ Thank you!</h3>
+    <p>Your question has been sent. I will get back to you as soon as possible.</p>
+  </div>
+
   <p class="contact-fallback">
     Or email me directly at:
     <a href="mailto:prakharbajpai727504@gmail.com" class="contact-link">
@@ -219,6 +224,25 @@
   </p>
 </section>
 
+<!-- ✅ Add this script at the bottom of your HTML file -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+  event.preventDefault(); // stop default redirect
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  // Send form data to Netlify
+  await fetch("/", {
+    method: "POST",
+    body: formData,
+  });
+
+  // Hide form and show thank you message
+  form.style.display = "none";
+  document.getElementById("thank-you-message").style.display = "block";
+});
+</script>
 
         <footer>
             <p>&copy; 2025 Prakhar Bajpai. All rights reserved.</p>
@@ -229,6 +253,7 @@
 </body>
 
 </html>
+
 
 
 
