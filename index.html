@@ -182,32 +182,47 @@
     </div>
 </section>
 
-       <section id="contact" class="content-section">
-    <h2>Ask a Question</h2>
-    <p>Have a question or want to work together? Send me a message!</p>
-    <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Your Question or Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-        </div>
-        <button type="submit" class="submit-button">Send Message</button>
-    </form>
-    
-    <p class="contact-fallback">
-        Or email me directly at: 
-        <a href="mailto:prakharbajpai727504@gmail.com" class="contact-link">
-            prakharbajpai727504@gmail.com
-        </a>
-    </p>
+       
+        <section id="contact" class="content-section">
+  <h2>Ask a Question</h2>
+  <p>Have a question or want to work together? Send me a message!</p>
+
+  <!-- ✅ Netlify form -->
+  <form class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="thank-you.html">
+
+    <!-- 👇 Required hidden field -->
+    <input type="hidden" name="form-name" value="contact">
+
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Question or Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-button">Send Message</button>
+  </form>
+
+  <p class="contact-fallback">
+    Or email me directly at:
+    <a href="mailto:prakharbajpai727504@gmail.com" class="contact-link">
+      prakharbajpai727504@gmail.com
+    </a>
+  </p>
 </section>
+
 
         <footer>
             <p>&copy; 2025 Prakhar Bajpai. All rights reserved.</p>
@@ -218,6 +233,7 @@
 </body>
 
 </html>
+
 
 
 
